@@ -10,7 +10,7 @@ public class CellPhoneApplication
 
     static void main()
     {
-        // gets user input
+        // CellPhone class called, 2 instances
         CellPhone theCellPhone = getCellPhoneApplicationDetails();
 
         CellPhone theCellPhone2 = getCellPhoneApplicationDetails();
@@ -18,7 +18,7 @@ public class CellPhoneApplication
         // displays user output
         displayCellPhoneApplicationConfirmation(theCellPhone);
 
-        // phones calling each other
+        // phones calling each other, using methods from the CellPhone class
         theCellPhone.dialNumber(theCellPhone2.getPhoneNumber());
         theCellPhone2.dialNumber(theCellPhone.getPhoneNumber());
     }
@@ -36,25 +36,26 @@ public class CellPhoneApplication
 
         // asks for user's name
         System.out.print("What is your name?: ");
-        String name = input.nextLine();
+        String name = input.nextLine().trim();
         theCellPhone.setName(name);
 
 
         // asks for user phone info
         System.out.print("What is the make/model of this phone?: ");
-        String model = input.nextLine();
+        String model = input.nextLine().trim();
         theCellPhone.setModel(model);
 
         System.out.print("Who is the phone carrier?: ");
-        String carrier = input.nextLine();
+        String carrier = input.nextLine().trim();
         theCellPhone.setCarrier(carrier);
 
         System.out.print("What is the phone number?: ");
-        String number = input.nextLine();
+        String number = input.nextLine().trim();
         theCellPhone.setPhoneNumber(number);
 
         System.out.print("What is the phone's serial number?: ");
         int serialNumber = input.nextInt();
+        // clears user input
         input.nextLine();
         theCellPhone.setSerialNumber(serialNumber);
 
