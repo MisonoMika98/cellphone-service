@@ -1,50 +1,82 @@
 package org.pluralsight;
 
-public class CellPhoneApplication {
-    private String name = "";
-    private String phoneNumber = "";
-    private String carrier = "";
-    private String model = "";
-    private int serialNumber = 0;
+import java.util.Scanner;
+
+public class CellPhoneApplication
+{
+
+    static Scanner input = new Scanner(System.in);
 
 
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
+    static void main()
+    {
+        // gets user input
+        CellPhone theCellPhone = getCellPhoneApplicationDetails();
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
+        CellPhone theCellPhone2 = getCellPhoneApplicationDetails();
 
-    public String getCarrier() {
-        return carrier;
-    }
-    public void setCarrier(String carrier) {
-        this.carrier = carrier;
-    }
+        // displays user output
+        displayCellPhoneApplicationConfirmation(theCellPhone);
 
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public int getSerialNumber() {
-        return serialNumber;
-    }
-
-    public void setSerialNumber(int serialNumber) {
-        this.serialNumber = serialNumber;
+        // phones calling each other
+        theCellPhone.dialNumber(theCellPhone2.getPhoneNumber());
+        theCellPhone2.dialNumber(theCellPhone.getPhoneNumber());
     }
 
 
+    static CellPhone getCellPhoneApplicationDetails()
+    {
+        // calls the cell phone app java class
+        CellPhone theCellPhone = new CellPhone();
 
+        // app name printed on start up
+        System.out.println("Cell Phone Application");
+        System.out.println("-----------------------------------------------");
+
+
+        // asks for user's name
+        System.out.print("What is your name?: ");
+        String name = input.nextLine();
+        theCellPhone.setName(name);
+
+
+        // asks for user phone info
+        System.out.print("What is the make/model of this phone?: ");
+        String model = input.nextLine();
+        theCellPhone.setModel(model);
+
+        System.out.print("Who is the phone carrier?: ");
+        String carrier = input.nextLine();
+        theCellPhone.setCarrier(carrier);
+
+        System.out.print("What is the phone number?: ");
+        String number = input.nextLine();
+        theCellPhone.setPhoneNumber(number);
+
+        System.out.print("What is the phone's serial number?: ");
+        int serialNumber = input.nextInt();
+        input.nextLine();
+        theCellPhone.setSerialNumber(serialNumber);
+
+
+        // line is here so the app doesn't break
+        return theCellPhone;
+
+    }
+
+    // outputs all info the user input
+    static void displayCellPhoneApplicationConfirmation(CellPhone theCellPhone)
+    {
+
+        System.out.println();
+        System.out.println("-------------------------------------------");
+        System.out.println(theCellPhone.getName());
+        System.out.println("Your phone's model/make is: " + theCellPhone.getModel());
+        System.out.println("Your phone carrier is: " + theCellPhone.getCarrier());
+        System.out.println("Your phone number is: " + theCellPhone.getPhoneNumber());
+        System.out.println("Your serial number is: " + theCellPhone.getSerialNumber());
+        System.out.println("-------------------------------------------");
+        System.out.println();
+
+    }
 }
