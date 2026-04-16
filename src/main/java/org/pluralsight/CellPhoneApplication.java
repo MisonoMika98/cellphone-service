@@ -27,7 +27,7 @@ public class CellPhoneApplication
 
     static CellPhone getCellPhoneApplicationDetails()
     {
-        // calls CellPhone class to create a new theCellPhone (variable name) object
+        // calls CellPhone class to create a new theCellPhone (variable name) object by using the CellPhone(); constructor
         CellPhone theCellPhone = new CellPhone();
 
         // app name printed on start up
