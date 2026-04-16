@@ -10,9 +10,10 @@ public class CellPhoneApplication
 
     static void main()
     {
-        // CellPhone class called, 2 instances
+        // might be redundant? (test later)
         CellPhone theCellPhone = getCellPhoneApplicationDetails();
 
+        // creates a 2nd theCellPhone object using a function
         CellPhone theCellPhone2 = getCellPhoneApplicationDetails();
 
         // displays user output
@@ -26,7 +27,7 @@ public class CellPhoneApplication
 
     static CellPhone getCellPhoneApplicationDetails()
     {
-        // calls the cell phone app java class
+        // calls CellPhone class to create a new theCellPhone (variable name) object
         CellPhone theCellPhone = new CellPhone();
 
         // app name printed on start up
